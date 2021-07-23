@@ -523,16 +523,27 @@ message StoreStats {
     QueryStats query_stats = 21;
 }
 
+message StoreReport {
+    uint64 store_id = 1;
+    repeated Region regions = 2;
+
 message StoreHeartbeatRequest {
     RequestHeader header = 1;
 
     StoreStats stats = 2;
+    StoreReport store_report = 3;
+}
+
+message RecoveryPlan {
+    repeated Region regions = 1;
 }
 
 message StoreHeartbeatResponse {
     ResponseHeader header = 1;
     replication_modepb.ReplicationStatus replication_status = 2;
     string cluster_version = 3;
+    bool send_detailed_report_in_next_heartbeat = 4;
+    RecoveryPlan plan = 5;
 }
 
 message ScatterRegionRequest {
