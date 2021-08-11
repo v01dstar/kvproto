@@ -3,6 +3,7 @@ package pdpb;
 
 import "metapb.proto";
 import "eraftpb.proto";
+import "raft_serverpb.proto";
 import "replication_modepb.proto";
 
 import "gogoproto/gogo.proto";
@@ -523,9 +524,15 @@ message StoreStats {
     QueryStats query_stats = 21;
 }
 
+message PeerState {
+    RaftLocalState raft_state = 1;
+    RegionLocalState region_state = 2;
+}
+
 message StoreReport {
     uint64 store_id = 1;
-    repeated Region regions = 2;
+    repeated PeerState peer = 2;
+}
 
 message StoreHeartbeatRequest {
     RequestHeader header = 1;
