@@ -543,8 +543,15 @@ message StoreHeartbeatRequest {
     StoreReport store_report = 3;
 }
 
+message PeerPlan {
+    uint64 id = 1;
+    bool drop = 2
+    Region target = 3;
+}
+
 message RecoveryPlan {
-    repeated Region regions = 1;
+    repeated uint64 failed_stores = 1;
+    repeated PeerPlan peer_plan = 2;
 }
 
 message StoreHeartbeatResponse {
