@@ -544,9 +544,8 @@ message StoreHeartbeatRequest {
 }
 
 message PeerPlan {
-    uint64 id = 1;
-    bool drop = 2
-    Region target = 3;
+    uint64 region_id = 1;
+    repeated Region targets = 2;
 }
 
 message RecoveryPlan {
