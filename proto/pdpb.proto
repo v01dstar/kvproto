@@ -543,14 +543,10 @@ message StoreHeartbeatRequest {
     StoreReport store_report = 3;
 }
 
-message PeerPlan {
-    uint64 region_id = 1;
-    repeated metapb.Region targets = 2;
-}
-
 message RecoveryPlan {
-    repeated uint64 failed_stores = 1;
-    repeated PeerPlan peer_plan = 2;
+    repeated metapb.Region keep_range = 1;
+    repeated metapb.Region update_range = 2;
+    repeated metapb.Region create_range = 3;
 }
 
 message StoreHeartbeatResponse {
