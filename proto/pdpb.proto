@@ -544,9 +544,9 @@ message StoreHeartbeatRequest {
 }
 
 message RecoveryPlan {
-    repeated metapb.Region keep_range = 1;
-    repeated metapb.Region update_range = 2;
-    repeated metapb.Region create_range = 3;
+    repeated metapb.Region creates = 1;
+    repeated metapb.Region updates = 2;
+    repeated uint64 deletes = 3;
 }
 
 message StoreHeartbeatResponse {
