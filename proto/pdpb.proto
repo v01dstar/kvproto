@@ -603,9 +603,14 @@ message StoreHeartbeatRequest {
     replication_modepb.StoreDRAutoSyncStatus dr_autosync_status = 4;
 }
 
+message RemovePeers {
+    uint64 region_id = 1;
+    repeated metapb.Peer = 2;
+}
+
 message RecoveryPlan {
     repeated metapb.Region creates = 1;
-    repeated metapb.Region updates = 2;
+    repeated RemovePeers updates = 2;
     repeated uint64 deletes = 3;
 }
 
