@@ -610,8 +610,12 @@ message RemovePeers {
 
 message RecoveryPlan {
     repeated metapb.Region creates = 1;
-    repeated RemovePeers updates = 2;
+    // Updates (= 2) are deprecated.
     repeated uint64 deletes = 3;
+    // Remove certain peers from the regions.
+    repeated RemovePeers regions = 4;
+    repeated uint64 enter_force_leader_peers = 5;
+    repeated uint64 exit_force_leader_peers = 6;
 }
 
 message StoreHeartbeatResponse {
