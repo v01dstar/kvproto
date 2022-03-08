@@ -603,7 +603,7 @@ message StoreHeartbeatRequest {
     replication_modepb.StoreDRAutoSyncStatus dr_autosync_status = 4;
 }
 
-message RemovePeers {
+message PeerListUpdates {
     uint64 region_id = 1;
     repeated metapb.Peer peers = 2;
 }
@@ -612,8 +612,7 @@ message RecoveryPlan {
     repeated metapb.Region creates = 1;
     // Updates (= 2) are deprecated.
     repeated uint64 deletes = 3;
-    // Remove certain peers from the regions.
-    repeated RemovePeers regions = 4;
+    repeated PeerListUpdates peer_list_updates = 4;
     repeated uint64 enter_force_leader_peers = 5;
     repeated uint64 exit_force_leader_peers = 6;
 }
