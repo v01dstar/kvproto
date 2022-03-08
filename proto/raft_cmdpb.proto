@@ -125,6 +125,7 @@ message ChangePeerResponse {
 
 message ChangePeerV2Request {
     repeated ChangePeerRequest changes = 1;
+    eraftpb.ConfChangeTransition transition = 2;
 }
 
 message ChangePeerV2Response {
