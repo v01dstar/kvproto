@@ -603,16 +603,16 @@ message StoreHeartbeatRequest {
     replication_modepb.StoreDRAutoSyncStatus dr_autosync_status = 4;
 }
 
-message PeerListUpdates {
+message PeerListUpdate {
     uint64 region_id = 1;
-    repeated metapb.Peer peers = 2;
+    repeated metapb.Peer remove_peers = 2;
 }
 
 message RecoveryPlan {
     repeated metapb.Region creates = 1;
     // Updates (= 2) are deprecated.
     repeated uint64 deletes = 3;
-    repeated PeerListUpdates peer_list_updates = 4;
+    repeated PeerListUpdate peer_list_updates = 4;
     repeated uint64 enter_force_leader_peers = 5;
     repeated uint64 exit_force_leader_peers = 6;
 }
