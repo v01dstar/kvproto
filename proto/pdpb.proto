@@ -605,7 +605,7 @@ message StoreHeartbeatRequest {
 
 message PeerListUpdate {
     uint64 region_id = 1;
-    repeated metapb.Peer demote_peers = 2;
+    repeated metapb.Peer demote_voters = 2;
 }
 
 message RecoveryPlan {
