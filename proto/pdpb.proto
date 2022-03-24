@@ -605,7 +605,7 @@ message StoreHeartbeatRequest {
 
 message RemovePeers {
     uint64 region_id = 1;
-    repeated metapb.Peer = 2;
+    repeated metapb.Peer peers = 2;
 }
 
 message RecoveryPlan {
