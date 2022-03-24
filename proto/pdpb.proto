@@ -613,7 +613,7 @@ message RecoveryPlan {
     // Updates (= 2) are deprecated.
     repeated uint64 deletes = 3;
     repeated PeerListUpdate peer_list_updates = 4;
-    repeated uint64 enter_force_leader_peers = 5;
+    repeated uint64 enter_force_leader_regions = 5;
     repeated uint64 failed_stores = 6;
 }
 
