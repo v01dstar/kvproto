@@ -588,6 +588,7 @@ message StoreStats {
 message PeerReport {
     raft_serverpb.RaftLocalState raft_state = 1;
     raft_serverpb.RegionLocalState region_state = 2;
+    bool is_forced_leader = 3;
 }
 
 message StoreReport {
