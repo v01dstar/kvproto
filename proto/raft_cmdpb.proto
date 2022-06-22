@@ -15,6 +15,7 @@ option java_package = "org.tikv.kvproto";
 message GetRequest {
     string cf = 1;
     bytes key = 2;
+    bytes ts = 3;
 }
 
 message GetResponse {
@@ -25,6 +26,7 @@ message PutRequest {
     string cf = 1;
     bytes key = 2;
     bytes value = 3;
+    bytes ts = 4;
 }
 
 message PutResponse {}
@@ -32,6 +34,7 @@ message PutResponse {}
 message DeleteRequest {
     string cf = 1;
     bytes key = 2;
+    bytes ts = 3;
 }
 
 message DeleteResponse {}
@@ -55,6 +58,7 @@ message PrewriteRequest {
     bytes key = 1;
     bytes value = 2;
     bytes lock = 3;
+    bytes ts = 4;
 }
 
 message PrewriteResponse {}
